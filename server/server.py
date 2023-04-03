@@ -6,9 +6,10 @@ from logging import Formatter, FileHandler
 import os
 
 class Projectile:
-  def __init__(self, angle, age):
+  def __init__(self, angle, type, power):
     self.angle = 0.0
     self.type = ""
+    self.power = 0
 
 
 app = Flask(__name__)
