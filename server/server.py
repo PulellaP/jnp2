@@ -2,16 +2,13 @@ from flask import Flask, render_template, request
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
-from forms import *
+#from forms import *
 import os
 
-class Person:
-  def __init__(self, name, age):
-    self.name = name
-    self.age = age
-
-p1 = Person("John", 36)
-
+class Projectile:
+  def __init__(self, angle, age):
+    self.angle = 0.0
+    self.type = ""
 
 
 app = Flask(__name__)
