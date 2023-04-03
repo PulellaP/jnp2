@@ -18,7 +18,7 @@ app.config.from_object('config')
 
 @app.route('/')
 def home():
-    return render_template('pages/placeholder.home.html')
+    return render_template('game_start.json')
 
 
 @app.route('/about')
