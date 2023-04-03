@@ -1,12 +1,18 @@
 import pygame
 import os
 
+# GAME WINDOW
 WIDTH, HEIGHT = 1300,700
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("JNP")
 
+# COLORS
+BLUE = (0,0,255)
+
+
 
 def draw_window():
+    pygame.draw.polygon(WIN, BLUE, ((0, 140), (120, 120), (130, 160)))
     pygame.display.update()
 
 def main():
