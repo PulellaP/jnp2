@@ -6,14 +6,29 @@ WIDTH, HEIGHT = 1300,700
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("JNP")
 
+#PLAYERS
+PLAYER_BLUE_POINTS = ((20, HEIGHT/2 - 30), (20, HEIGHT/2 + 30), (100, HEIGHT/2))
+
 # COLORS
 BLUE = (0,0,255)
+RED = (255,0,0)
 
+def draw_players():
+    pygame.draw.polygon(WIN, BLUE, PLAYER_BLUE_POINTS)
+    pygame.draw.polygon(WIN, RED, ((1280, HEIGHT/2 - 30), (1280, HEIGHT/2 + 30), (1200, HEIGHT/2)))
 
 
 def draw_window():
-    pygame.draw.polygon(WIN, BLUE, ((0, 140), (120, 120), (130, 160)))
+    draw_players()
     pygame.display.update()
+
+def handle_input(keys_pressed):
+    if keys_pressed[pygame.K_a]: # LEFT
+        pass
+    if keys_pressed[pygame.K_d]: # RIGHT
+        pass
+            
+
 
 def main():
     clock = pygame.time.Clock()
@@ -25,6 +40,8 @@ def main():
                 run = False
                 pygame.quit()
         
+        keys_pressed = pygame.key.get_pressed()
+        handle_input(keys_pressed)
         draw_window()
 
     main()
