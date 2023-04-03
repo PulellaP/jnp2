@@ -8,14 +8,14 @@ pygame.display.set_caption("JNP")
 
 #PLAYERS
 PLAYER_BLUE_POINTS = ((20, HEIGHT/2 - 30), (20, HEIGHT/2 + 30), (100, HEIGHT/2))
-
+PLAYER_RED_POINTS = ((1280, HEIGHT/2 - 30), (1280, HEIGHT/2 + 30), (1200, HEIGHT/2))
 # COLORS
 BLUE = (0,0,255)
 RED = (255,0,0)
 
 def draw_players():
     pygame.draw.polygon(WIN, BLUE, PLAYER_BLUE_POINTS)
-    pygame.draw.polygon(WIN, RED, ((1280, HEIGHT/2 - 30), (1280, HEIGHT/2 + 30), (1200, HEIGHT/2)))
+    pygame.draw.polygon(WIN, RED, PLAYER_RED_POINTS )
 
 
 def draw_window():
