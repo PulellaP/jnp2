@@ -12,6 +12,10 @@ class Projectile:
     self.power = 0
 
 
+class Player:
+    def __init__(self, token):
+        self.token = 0
+
 app = Flask(__name__)
 app.config.from_object('config')
 
