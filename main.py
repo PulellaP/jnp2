@@ -14,7 +14,8 @@ BLUE = (0,0,255)
 RED = (255,0,0)
 
 def draw_players():
-    pygame.draw.polygon(WIN, BLUE, PLAYER_BLUE_POINTS)
+    x = pygame.draw.polygon(WIN, BLUE, PLAYER_BLUE_POINTS)
+    print(type(x))
     pygame.draw.polygon(WIN, RED, PLAYER_RED_POINTS )
 
 

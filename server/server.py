@@ -5,9 +5,14 @@ from logging import Formatter, FileHandler
 from forms import *
 import os
 
-#----------------------------------------------------------------------------#
-# App Config.
-#----------------------------------------------------------------------------#
+class Person:
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+p1 = Person("John", 36)
+
+
 
 app = Flask(__name__)
 app.config.from_object('config')
