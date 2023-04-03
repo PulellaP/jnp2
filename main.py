@@ -6,28 +6,23 @@ WIDTH, HEIGHT = 1300,700
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("JNP")
 
-#PLAYERS
-PLAYER_BLUE_POINTS = ((20, HEIGHT/2 - 30), (20, HEIGHT/2 + 30), (100, HEIGHT/2))
-PLAYER_RED_POINTS = ((1280, HEIGHT/2 - 30), (1280, HEIGHT/2 + 30), (1200, HEIGHT/2))
 # COLORS
 BLUE = (0,0,255)
 RED = (255,0,0)
 
 #PLAYER INFO
-PLAYER_WIDTH, PLAYER_HEIGHT = 512, 693
+PLAYER_WIDTH, PLAYER_HEIGHT = 60, 100
 
 LEFT_PLAYER_IMAGE = pygame.image.load(
-    os.path.join('Assets', 'impossible_triangle.png'))
+    os.path.join('Assets', 'impossible-triangle.png'))
 LEFT_PLAYER = pygame.transform.rotate(pygame.transform.scale(
-    LEFT_PLAYER_IMAGE, (PLAYER_WIDTH, PLAYER_HEIGHT)), 90)
-
-def draw_players():
-    pygame.draw.polygon(WIN, BLUE, PLAYER_BLUE_POINTS)
-    pygame.draw.polygon(WIN, RED, PLAYER_RED_POINTS )
+    LEFT_PLAYER_IMAGE, (PLAYER_WIDTH, PLAYER_HEIGHT)), 270)
 
 
-def draw_window():
-    draw_players()
+
+
+def draw_window(left_player):
+    WIN.blit(LEFT_PLAYER, (left_player.x, left_player.y))
     pygame.display.update()
 
 def handle_input(keys_pressed):
@@ -39,7 +34,7 @@ def handle_input(keys_pressed):
 
 
 def main():
-    left_player = py
+    left_player = pygame.Rect(100, 350, PLAYER_WIDTH, PLAYER_WIDTH)
 
 
     clock = pygame.time.Clock()
@@ -51,9 +46,9 @@ def main():
                 run = False
                 pygame.quit()
         
-        keys_pressed = pygame.key.get_pressed()
-        handle_input(keys_pressed)
-        draw_window()
+        # keys_pressed = pygame.key.get_pressed()
+        # handle_input(keys_pressed)
+        draw_window(left_player)
 
     main()
 
