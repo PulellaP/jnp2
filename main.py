@@ -13,6 +13,14 @@ PLAYER_RED_POINTS = ((1280, HEIGHT/2 - 30), (1280, HEIGHT/2 + 30), (1200, HEIGHT
 BLUE = (0,0,255)
 RED = (255,0,0)
 
+#PLAYER INFO
+PLAYER_WIDTH, PLAYER_HEIGHT = 512, 693
+
+LEFT_PLAYER_IMAGE = pygame.image.load(
+    os.path.join('Assets', 'impossible_triangle.png'))
+LEFT_PLAYER = pygame.transform.rotate(pygame.transform.scale(
+    LEFT_PLAYER_IMAGE, (PLAYER_WIDTH, PLAYER_HEIGHT)), 90)
+
 def draw_players():
     pygame.draw.polygon(WIN, BLUE, PLAYER_BLUE_POINTS)
     pygame.draw.polygon(WIN, RED, PLAYER_RED_POINTS )
@@ -31,6 +39,9 @@ def handle_input(keys_pressed):
 
 
 def main():
+    left_player = py
+
+
     clock = pygame.time.Clock()
     run = True
     while run:
