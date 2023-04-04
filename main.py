@@ -11,7 +11,7 @@ BLUE = (0,0,255)
 RED = (255,0,0)
 
 #PLAYER INFO
-PLAYER_WIDTH, PLAYER_HEIGHT = 60, 100
+PLAYER_WIDTH, PLAYER_HEIGHT = 60, 80
 
 LEFT_PLAYER_IMAGE = pygame.image.load(
     os.path.join('Assets', 'impossible-triangle.png'))
@@ -25,16 +25,19 @@ def draw_window(left_player):
     WIN.blit(LEFT_PLAYER, (left_player.x, left_player.y))
     pygame.display.update()
 
-def handle_input(keys_pressed):
+def handle_input(keys_pressed, left_player):
     if keys_pressed[pygame.K_a]: # LEFT
-        pass
+        rotated_image = pygame.transform.rotate(LEFT_PLAYER, -10)
+        new_rect = rotated_image.get_rect(center = LEFT_PLAYER.get_rect(topleft = LEFT).center)
+        WIN.blit(rotated_image, new_rect)
+
     if keys_pressed[pygame.K_d]: # RIGHT
         pass
-            
+
 
 
 def main():
-    left_player = pygame.Rect(100, 350, PLAYER_WIDTH, PLAYER_WIDTH)
+    left_player = pygame.Rect(100, 320, PLAYER_WIDTH, PLAYER_WIDTH)
 
 
     clock = pygame.time.Clock()
@@ -46,8 +49,8 @@ def main():
                 run = False
                 pygame.quit()
         
-        # keys_pressed = pygame.key.get_pressed()
-        # handle_input(keys_pressed)
+        keys_pressed = pygame.key.get_pressed()
+        handle_input(keys_pressed, left_player)
         draw_window(left_player)
 
     main()
