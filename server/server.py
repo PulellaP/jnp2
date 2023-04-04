@@ -13,13 +13,16 @@ class Projectile:
 
 
 class Player:
-    def __init__(self, token, points, inventory):
+    def __init__(self, token, points, BombInventory, SquareInventory):
         self.token = 0
         self.points = 0
-        self.inventory = ""
+        self.BombInventory = 0
+        self.SquareInventory = 0
+        
 
 app = Flask(__name__)
 app.config.from_object('config')
+
 
 
 @app.route('/')
