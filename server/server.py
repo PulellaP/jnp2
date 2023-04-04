@@ -5,19 +5,35 @@ from logging import Formatter, FileHandler
 #from forms import *
 import os
 
-class Projectile:
-  def __init__(self, angle, type, power):
+
+class PlayerAction:
+  def __init__(self, id, angle, type, power):
+    self.id = ""
     self.angle = 0.0
     self.type = ""
     self.power = 0
 
+class Player:
+    def __init__(self, id, points, BombInventory, SquareInventory):
+        self.id = ""
+        self.points = 0
+        self.BombInventory = 0
+        self.SquareInventory = 0
+
+class Game:
+    def __init__(self, id, player1, player2):
+        self.id = ""
+        self.player1 = ""
+        self.player2 = ""
 
 app = Flask(__name__)
 app.config.from_object('config')
 
 
+
 @app.route('/')
 def home():
+    p = Player()
     return render_template('game_start.json')
 
 
